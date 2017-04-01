@@ -2,92 +2,283 @@
 <html>
 <head>
   <% include ../partials/header.ejs %>
-</head>
-<body>
-  <div class="page-header">
-    <h1>宮井　千尋</h1>
-    <p class="lead">マークアップ、UI実装がメインのフロントエンド</p>
-  </div>
-  <div class="container">
-    <div class="content">
-      <h3 class="headline">ソーシャルゲームの新規・運用の開発</h3>
-      <div class="row">
-        <div class="col-md-7">
-          <p>新規立ち上げから携わり、クエスト、デッキ、ユーザーページなどリリース時のアニメーション以外の全ページのマークアップ、UI実装を担当。</p>
-        </div>
-        <div class="col-md-5 capture-frame">
-          <img src="gf-deck.png" height="200">
-          <img src="gf-mypage.png" height="200">
-          <img src="gf-quest.png" height="200">
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      <h3 class="headline">紳士服のECサイト・顧客管理ツールのUI実装</h3>
-      <div class="row">
-        <div class="col-md-7">
-          <p>顧客管理ツールの実装では、マークアップのほか、サムネイルのカルーセル表示、FileAPIによるファイル選択機能を実装。</p>
-          <p>
-            <a href="http://htmlpreview.github.io/?https://github.com/miyai-chihiro/fileupload/blob/master/dist/index.html" target="_blank">fileAPIの実装サンプル</a><br>
-            <span class="note">＊デザインはすべてダミー</span>
-          </p>
-        </div>
-        <div class="col-md-5 capture-frame">
-          <img src="cap-fileapi.png" width="200">
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      <h3 class="headline">ゲームコミュティサービスの開発</h3>
-      <div class="row">
-        <div class="col-md-7">
-          <p>顧客管理ツールの実装では、マークアップのほか、サムネイルのカルーセル表示、FileAPIによるファイル選択機能を実装。</p>
-          <p>
-            <a href="http://htmlpreview.github.io/?https://github.com/miyai-chihiro/fileupload/blob/master/dist/index.html" target="_blank">fileAPIの実装サンプル</a><br>
-            <span class="note">＊デザインはすべてダミー</span>
-          </p>
-        </div>
-        <div class="col-md-5 capture-frame">
-          <img src="lobi.png" width="200">
-          <img src="lobi-sp.png" width="200">
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      <h3 class="headline">美容・コスメのコミュニティサービスの開発</h3>
-      <div class="row pb20">
-        <div class="col-md-7">
-          <p>顧客管理ツールの実装では、マークアップのほか、サムネイルのカルーセル表示、FileAPIによるファイル選択機能を実装。</p>
-        </div>
-        <div class="col-md-5 capture-frame">
-          <img src="qa-product.png" height="200">
-          <img src="qa-modal.png" height="200">
-          <img src="qa-fileapi.png" height="200">
-        </div>
-      </div>
-      <div class="row pb20">
-        <div class="col-md-7">
-          <p>顧客管理ツールの実装では、マークアップのほか、サムネイルのカルーセル表示、FileAPIによるファイル選択機能を実装。</p>
-        </div>
-        <div class="col-md-5 capture-frame">
-          <img src="specialist.png" height="200">
-          <img src="specialist-photo.png" height="200">
-          <img src="specialist-pc.png" width="200">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-7">
-          <p>デザインの組み合わせを比較できるツールの開発</p>
-          <a href="hhttps://polymer-sorting.herokuapp.com/" target="_blank">デザイン組み合わせツール</a>
-        </div>
-        <div class="col-md-5 capture-frame">
-          <img src="element-sorting.png" width="400">
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <link rel="import" href="../bower_components/app-layout/app-layout.html">
+
+  <link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+  <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+  <link rel="import" href="../bower_components/app-header/app-header.html">
+  <style is="custom-style">
+
+    :root {
+      --dark-primary-color:       #0097A7;
+      --default-primary-color:    #00BCD4;
+      --light-primary-color:      #B2EBF2;
+      --text-primary-color:       #FFFFFF;
+      --accent-color:             #FFEB3B;
+      --primary-background-color: #B2EBF2;
+      --primary-text-color:       #212121;
+      --secondary-text-color:     #757575;
+      --disabled-text-color:      #BDBDBD;
+      --divider-color:            #BDBDBD;
+
+
+      /* Components */
+
+      /* paper-drawer-panel */
+      --drawer-menu-color:           #ffffff;
+      --drawer-border-color:         1px solid #ccc;
+      --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
+
+      /* paper-menu */
+      --paper-menu-background-color: #fff;
+      --menu-link-color:             #111111;
+
+      /* paper-input */
+      --paper-input-container-color:       rgba(255, 255, 255, 0.64);
+      --paper-input-container-focus-color: rgba(255, 255, 255, 1);
+      --paper-input-container-input-color: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      background-color: #fefefe;
+      color: var(--secondary-text-color);
+    }
+
+    a {
+      color: var(--dark-primary-color);
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: #fff;
+      background-color: var(--default-primary-color);
+      --app-header-background-front-layer: {
+      };
+      z-index: 100;
+    }
+
+    app-toolbar.middle {
+      height: 120px;
+      padding-bottom: 70px;
+      border-bottom: 1px solid var(--dark-primary-color);
+    }
+
+    app-toolbar.bottom {
+      height: 92px;
+    }
+
+    [main-title] {
+      margin-left: 10px;
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--accent-color);
+    }
+
+    [condensed-title] {
+      margin-left: 20px;
+      font-weight: 300;
+    }
+    .profile-box {
+      margin: 10px;
+      font-size: 14px;
+      color: var(--light-primary-color);
+    }
+    .profile-box h2 {
+      margin-bottom: 3px;
+      font-size: 15px;
+    }
+    .profile-box p {
+      margin: 0;
+    }
+    .profile-lead {
+      font-size: 13px;
+      color: var(--light-primary-color);
+    }
+
+    .first, .second, .third, .fourth, .fifth, .sixth, .seventh {
+      height: 500px;
+    }
+    .second {
+      --app-box-background-front-layer: {
+        background-image: url(/images/cap-fileapi.jpg);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+    .third {
+      --app-box-background-front-layer: {
+        background-image: url(/images/lobi.jpg);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+    .fourth {
+      --app-box-background-front-layer: {
+        background-image: url(/images/at_cosme.jpg);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+    .fifth {
+      --app-box-background-front-layer: {
+        background-image: url(/images/specialist.jpg);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
+        height: 100%;
+      };
+    }
+    .sixth {
+      --app-box-background-front-layer: {
+        background-image: url(/images/cap-sort-element.jpg);
+        height: 100%;
+      };
+    }
+    .speed-content {
+      padding-top: 320px;
+    }
+    article {
+      font-weight: 100;
+      max-width: 680px;
+      text-align: center;
+      margin: 100px auto 40px auto;
+    }
+    article h2 {
+      font-weight: 100;
+      font-size: 50px;
+      margin: 5px;
+    }
+    article p {
+      font-size: 18px;
+      line-height: 30px;
+    }
+    article hr {
+      width: 100px;
+      height: 1px;
+      margin-bottom: 30px;
+      border: none;
+      background-color: black;
+    }
+
+
+  </style>
+</head>
+<body unresolved>
+
+  <app-header effects="waterfall resize-title blend-background parallax-background" condenses reveals>
+    <app-toolbar>
+      <div condensed-title>宮井　千尋</div>
+      <paper-icon-button icon="create"></paper-icon-button>
+      <paper-icon-button icon="more-vert"></paper-icon-button>
+    </app-toolbar>
+    <app-toolbar class="middle">
+      <div class="profile-box">
+        <h2>言語</h2>
+        <p>HTML5 / CSS3 / javascript</p>
+
+        <h2>開発環境</h2>
+        <p>Photoshop / Illustrator / git / grunt / gulp/ webpack / tig / sublime text</p>
+
+        <h2>その他</h2>
+        <p>sass / es2015 / jQuery / AngularJS / riot.js / WebComponents / Polymer</p>
+      </div>
+    </app-toolbar>
+    <app-toolbar class="bottom">
+      <div main-title>宮井　千尋 <span class="profile-lead">マークアップ・UI実装をメインとしたフロントエンド</span></div>
+    </app-toolbar>
+  </app-header>
+
+
+  <section id="speed" class="speed-content">
+    <article>
+      <hr/>
+      <h2>ソーシャルゲーム<br>「ガールフレンド（仮）」</h2>
+      <a href="vcard.ameba.jp" target="_blank">vcard.ameba.jp</a>
+      <p>プロジェクトの立ち上げから参加。マークアップ、UI、CSSアニメーションの実装を担当し、初期表示速度を考慮して初期表示以外は非同期で表示、画像を使わずにCSSで再現できるデザインの提案、実装を行いました。</p>
+    </article>
+    <app-box class="first" effects="parallax-background">
+      <img background src="images/gf-mypage.png" style="width:100%; height: 900px" />
+    </app-box>
+  </section>
+
+  <section>
+    <article>
+      <hr/>
+      <h2>紳士服の顧客管理ツール</h2>
+      <p>ヒアリングをしたクライアントの作業フローに沿って顧客管理ツールのUI設計・実装を担当。開発の中で社内用にモックの作成、UI実装コードのドキュメントを作成。</p>
+      <p><a href="https://github.com/miyai-chihiro/fileupload" target="_blank">FileApiのコードサンプルコード</a></p>
+      <p><a href="https://github.com/miyai-chihiro/flicklist" target="_blank">フリックでリストのステータスを更新するサンプルコード</a></p>
+    </article>
+    <!--
+      This app-box uses the class `.second` and the mixin `--app-box-background-front-layer` to assign the background image.
+    -->
+    <app-box class="second" effects="parallax-background"></app-box>
+  </section>
+
+  <section>
+      <article>
+        <hr/>
+        <h2>ゲーム攻略・動画サービス <br>「Lobi」</h2>
+        <p>AngularJSで開発。多言語化対応を担当し、AngularJSのangular-translateモジュールを使った設計から言語変換の実装まで行いました。</p>
+      </article>
+      <app-box class="third" effects="parallax-background"></app-box>
+    </section>
+
+    <section>
+      <article>
+        <h2>美容の総合サイト<br>「@cosme」</h2>
+        <a href="http://s.cosme.net/" target="_blank">http://s.cosme.net/</a>
+        <p>SP_PCのトップページのUI改修のほか、コードのリファクタリング、速度改善、コードレビューを担当。ほか、fileapiで画像投稿機能、検索モーダルなど新規機能はes2015で実装しモジュール化しました。</p>
+      </article>
+      <app-box class="fourth" effects="parallax-background"></app-box>
+    </section>
+
+    <section>
+      <article>
+        <hr/>
+        <h2>ビューティ情報サイト<br>「Beauty Specialist」</h2>
+        <a href="https://www.cosme.net/specialist/" target="_blank">https://www.cosme.net/specialist/</a>
+        <p>riot.jsで実装。画像の遅延読み込み、エフェクト、サムネイルのカルーセル実装のモジュール化を行いました。</p>
+      </article>
+      <app-box class="fifth" effects="parallax-background"></app-box>
+    </section>
+
+    <section>
+      <article>
+        <hr/>
+        <h2>デザインを組み替えて表示する社内用ツール</h2>
+        <a href="https://polymer-sorting.herokuapp.com/" target="_blank">https://polymer-sorting.herokuapp.com/</a>
+        <p>webComponents/Polymerで実装。選択した画像のパーツを組み替えて、ビューで確認できます。データはjsonで管理できるようにしました。</p>
+      </article>
+      <app-box class="sixth" effects="parallax-background"></app-box>
+    </section>
+
+
+  <script>
+    var fab = document.querySelector('paper-fab');
+    var header = document.querySelector('app-header');
+    window.addEventListener('scroll', function() {
+      var progress = header.getScrollState().progress;
+      fab.toggleClass('shrink-to-hidden', progress > 0.5);
+    });
+  </script>
+
 </body>
+
 </html>
