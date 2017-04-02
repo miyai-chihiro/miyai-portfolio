@@ -12,12 +12,12 @@
   <style is="custom-style">
 
     :root {
-      --dark-primary-color:       #0097A7;
-      --default-primary-color:    #00BCD4;
-      --light-primary-color:      #B2EBF2;
+      --dark-primary-color:       #455A64;
+      --default-primary-color:    #607D8B;
+      --light-primary-color:      #CFD8DC;
       --text-primary-color:       #FFFFFF;
-      --accent-color:             #FFEB3B;
-      --primary-background-color: #B2EBF2;
+      --accent-color:             #FF4081;
+      --primary-background-color: #CFD8DC;
       --primary-text-color:       #212121;
       --secondary-text-color:     #757575;
       --disabled-text-color:      #BDBDBD;
@@ -52,7 +52,10 @@
       color: var(--dark-primary-color);
     }
     a:hover {
-      text-decoration: underline;
+      opacity: 0.8;
+    }
+    .text-center {
+      text-align: center;
     }
 
     app-header {
@@ -87,6 +90,7 @@
     [condensed-title] {
       margin-left: 20px;
       font-weight: 300;
+      color: var(--accent-color);
     }
     .profile-box {
       margin: 10px;
@@ -113,8 +117,8 @@
         background-image: url(/images/cap-fileapi.jpg);
         background-position: bottom;
         padding-bottom: 120px;
-        margin-top: -20px;
-        height: 100%;
+        margin-top: -10px;
+        height: 600px;
       };
     }
     .third {
@@ -147,6 +151,9 @@
     .sixth {
       --app-box-background-front-layer: {
         background-image: url(/images/cap-sort-element.jpg);
+        background-position: bottom;
+        padding-bottom: 120px;
+        margin-top: -20px;
         height: 100%;
       };
     }
@@ -155,7 +162,7 @@
     }
     article {
       font-weight: 100;
-      max-width: 680px;
+      max-width: 630px;
       text-align: center;
       margin: 100px auto 40px auto;
     }
@@ -167,6 +174,7 @@
     article p {
       font-size: 18px;
       line-height: 30px;
+      text-align: left;
     }
     article hr {
       width: 100px;
@@ -174,6 +182,25 @@
       margin-bottom: 30px;
       border: none;
       background-color: black;
+    }
+    @media (min-width: 320px) and (max-width: 600px) {
+      article {
+        max-width: 320px;
+        margin: 50px auto 20px;
+      }
+      article h2 {
+        font-size: 25px;
+      }
+      .first img {
+        width: auto !important;
+        margin-left: -60%;
+      }
+      .third {
+        margin-left: -80%;
+      }
+      .sixth {
+        height: 200px;
+      }
     }
 
 
@@ -213,7 +240,7 @@
       <p>プロジェクトの立ち上げから参加。マークアップ、UI、CSSアニメーションの実装を担当し、初期表示速度を考慮して初期表示以外は非同期で表示、画像を使わずにCSSで再現できるデザインの提案、実装を行いました。</p>
     </article>
     <app-box class="first" effects="parallax-background">
-      <img background src="images/gf-mypage.png" style="width:100%; height: 900px" />
+      <img background src="images/gf-capture.jpg" style="width:100%; height: 700px" />
     </app-box>
   </section>
 
@@ -222,8 +249,8 @@
       <hr/>
       <h2>紳士服の顧客管理ツール</h2>
       <p>ヒアリングをしたクライアントの作業フローに沿って顧客管理ツールのUI設計・実装を担当。開発の中で社内用にモックの作成、UI実装コードのドキュメントを作成。</p>
-      <p><a href="https://github.com/miyai-chihiro/fileupload" target="_blank">FileApiのコードサンプルコード</a></p>
-      <p><a href="https://github.com/miyai-chihiro/flicklist" target="_blank">フリックでリストのステータスを更新するサンプルコード</a></p>
+      <p class="text-center"><a href="https://github.com/miyai-chihiro/fileupload" target="_blank">FileApiのコードサンプルコード</a></p>
+      <p class="text-center"><a href="https://github.com/miyai-chihiro/flicklist" target="_blank">フリックでリストのステータスを更新するサンプルコード</a></p>
     </article>
     <!--
       This app-box uses the class `.second` and the mixin `--app-box-background-front-layer` to assign the background image.
@@ -235,6 +262,7 @@
       <article>
         <hr/>
         <h2>ゲーム攻略・動画サービス <br>「Lobi」</h2>
+        <a href="https://web.lobi.co/" target="_blank">https://web.lobi.co/</a>
         <p>AngularJSで開発。多言語化対応を担当し、AngularJSのangular-translateモジュールを使った設計から言語変換の実装まで行いました。</p>
       </article>
       <app-box class="third" effects="parallax-background"></app-box>
@@ -268,16 +296,6 @@
       </article>
       <app-box class="sixth" effects="parallax-background"></app-box>
     </section>
-
-
-  <script>
-    var fab = document.querySelector('paper-fab');
-    var header = document.querySelector('app-header');
-    window.addEventListener('scroll', function() {
-      var progress = header.getScrollState().progress;
-      fab.toggleClass('shrink-to-hidden', progress > 0.5);
-    });
-  </script>
 
 </body>
 
